@@ -1,6 +1,11 @@
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb+srv://sachin:sachin243$@cluster0.p3rkz.mongodb.net/");
+mongoose.connect(
+  "mongodb+srv://sachin:sachin243$@cluster0.p3rkz.mongodb.net/mern_auth",
+  {
+    serverSelectionTimeoutMS: 5000,
+  }
+);
 mongoose.connection.on("connected", () => {
   console.log("connected to mongoDb");
 });
