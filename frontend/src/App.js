@@ -1,10 +1,19 @@
 import "./App.css";
-
+import Login from "./pages/auth/login/Login";
+import SignUp from "./pages/auth/signup/SignUp";
+import Dashboard from "./pages/dashboard/Dashboard";
+import Header from "./pages/header/Header";
+import { Route, Routes } from "react-router-dom";
 function App() {
   return (
-    <div className="App">
-      <h1 className="text-center">React Applicaton</h1>
-    </div>
+    <>
+      <Header></Header>
+      <Routes>
+        <Route path="/login" element={<Login></Login>}></Route>
+        <Route path="register" element={<SignUp></SignUp>}></Route>
+        <Route path="/dashboard" element={<Dashboard></Dashboard>}></Route>
+      </Routes>
+    </>
   );
 }
 
