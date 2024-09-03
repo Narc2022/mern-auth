@@ -5,7 +5,7 @@ const { generateToken } = require("../utils/jwtUtils");
 async function login(email, password) {
   try {
     const existingUser = await User.findOne({ email });
-
+    await console.log("existingUser", existingUser);
     if (!existingUser) {
       throw new Error("User not found");
     }
@@ -17,7 +17,9 @@ async function login(email, password) {
     if (!isPasswordValid) {
       throw new Error("Incorrect password");
     }
-    generateToken(existingUser);
+
+    const token = generateToken(existingUser);
+    return token;
   } catch (error) {
     console.error("Login error:", error.message);
     throw new Error("Invalid credentials");
