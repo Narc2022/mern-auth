@@ -22,12 +22,12 @@ const Signup = () => {
     e.preventDefault();
     console.log("formData", formData);
     try {
-      fetch("https://localhost:5000/user/register", {
+      await fetch("http://localhost:5000/user/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: formData,
+        body: JSON.stringify(formData), // Ensure the body is properly formatted
       });
     } catch (error) {
       console.error(error.message);
