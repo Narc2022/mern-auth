@@ -1,6 +1,7 @@
 const express = require("express");
 const signupRoute = require("./routes/signup");
 const loginRoute = require("./routes/login");
+const userRouter = require("./routes/user");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
@@ -14,6 +15,7 @@ createAdminAccount();
 
 app.use("/user", signupRoute);
 app.use("/auth", loginRoute);
+app.use("/api", userRouter);
 app.listen(PORT, () => {
   console.log(`Server is running on https://localhost:${PORT}`);
 });

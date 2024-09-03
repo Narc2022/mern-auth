@@ -5,7 +5,7 @@ const { generateToken } = require("../utils/jwtUtils");
 async function login(email, password) {
   try {
     const existingUser = await User.findOne({ email });
-    await console.log("existingUser", existingUser);
+
     if (!existingUser) {
       throw new Error("User not found");
     }
