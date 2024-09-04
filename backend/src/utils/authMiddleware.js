@@ -26,7 +26,7 @@ async function authenticateToken(req, res, next) {
 }
 
 function verifyToken(token) {
-  jwt.verify(token, secretKey);
+  return jwt.verify(token, secretKey);
 }
 
 module.exports = { authenticateToken, verifyToken };
