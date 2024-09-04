@@ -20,7 +20,6 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("formData", formData);
     try {
       await fetch("http://localhost:5000/user/register", {
         method: "POST",

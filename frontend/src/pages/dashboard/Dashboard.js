@@ -20,9 +20,8 @@ const Dashboard = () => {
 
     if (token) fetchUsers();
     else navigate("/login");
-    console.log("users", users);
   }, [token, navigate]);
-  console.log("users", users);
+
   return (
     <Container>
       <Row>

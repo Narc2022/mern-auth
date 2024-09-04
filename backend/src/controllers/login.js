@@ -10,4 +10,12 @@ async function login(req, res) {
   }
 }
 
-module.exports = { login };
+async function refreshToken(req, res) {
+  try {
+    const { token } = req.body;
+    const newToken = await authService.refreshToken(token);
+    res.json({ newToken: newToken });
+  } catch (error) {}
+}
+
+module.exports = { login, refreshToken };

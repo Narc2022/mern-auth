@@ -7,10 +7,8 @@ async function authenticateToken(req, res, next) {
   if (!authHeader) {
     return res.status(401).json({ message: "Unathorized: Missing token" });
   }
-  console.log("authHeader", authHeader);
   const [bearer, token] = authHeader.split(" ");
-  console.log("bearer", bearer);
-  console.log("token", token);
+
   if (bearer !== "Bearer" || !token) {
     return res
       .status(401)
@@ -19,7 +17,6 @@ async function authenticateToken(req, res, next) {
 
   jwt.verify(token, secretKey, (err, user) => {
     if (err) {
-      console.log(err.message);
       return res.status(403).json({ message: "Forbidden: Invalid Token" });
     }
 
@@ -28,4 +25,8 @@ async function authenticateToken(req, res, next) {
   });
 }
 
-module.exports = { authenticateToken };
+function verifyToken(token) {
+  jwt.verify(token, secretKey);
+}
+
+module.exports = { authenticateToken, verifyToken };

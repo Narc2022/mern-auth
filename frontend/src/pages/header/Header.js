@@ -7,7 +7,6 @@ import "./Header.css";
 const Header = () => {
   const navigate = useNavigate();
   const token = localStorage.getItem("authToken");
-  console.log("token", token);
   const handleLogout = () => {
     localStorage.removeItem("authToken");
     navigate("/login");
